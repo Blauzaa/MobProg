@@ -5,7 +5,9 @@ import 'package:mobileapps/GlobalVariabel.dart';
 import 'package:mobileapps/History.dart';
 import 'package:mobileapps/Profile.dart';
 import 'package:mobileapps/Qris.dart';
-import 'package:mobileapps/main.dart';
+import 'package:mobileapps/TopUP.dart';
+import 'package:intl/intl.dart';
+import 'package:mobileapps/transfer.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -27,7 +29,7 @@ class _HomeState extends State<Home> {
           .push(MaterialPageRoute(builder: (context) => Finance()));
     } else if (index == 1) {
       Navigator.of(context)
-          .push(MaterialPageRoute(builder: (context) => MyApp()));
+          .push(MaterialPageRoute(builder: (context) => Home()));
     } else if (index == 2) {
       Navigator.of(context)
           .push(MaterialPageRoute(builder: (context) => Qris()));
@@ -114,7 +116,7 @@ class _HomeState extends State<Home> {
                   top: 50,
                   left: 25,
                   child: Text(
-                    'Rp. 200.000.629',
+                    'Rp. ${NumberFormat('#,###', 'id_ID').format(Balance.balance)}',
                     style: TextStyle(
                       fontSize: 30,
                       color: Colors.white,
@@ -134,7 +136,14 @@ class _HomeState extends State<Home> {
                 children: [
                   GestureDetector(
                     onTap: () {
-                      print("yes topUp was clicked");
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) {
+                          final topUpPageState =
+                              TopUPpage(); // Create an instance of the state
+                          return TopUP(state: topUpPageState);
+                        }),
+                      );
                     },
                     child: Center(
                       child: Container(
@@ -209,7 +218,10 @@ class _HomeState extends State<Home> {
                 children: [
                   GestureDetector(
                     onTap: () {
-                      print("yes Transfer was clicked");
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => Transfer()),
+                      );
                     },
                     child: Center(
                       child: Container(
@@ -323,8 +335,7 @@ class _HomeState extends State<Home> {
               Container(
                 margin: EdgeInsets.only(left: 20, top: 5),
                 child: Text(
-                  myHistory.nama[myHistory.nama.length -
-                      1], //globaldata NAME[globaldata.length-1]
+                  myHistory.nama[myHistory.nama.length - 1],
                   style: TextStyle(
                     fontSize: 16,
                     fontWeight: FontWeight.w500,

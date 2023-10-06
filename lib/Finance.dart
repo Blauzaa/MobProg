@@ -4,6 +4,7 @@ import 'package:mobileapps/Qris.dart';
 import 'package:mobileapps/GlobalVariabel.dart';
 import 'package:mobileapps/main.dart';
 
+
 void main() {
   runApp(const Finance());
 }
@@ -13,7 +14,7 @@ final ethereum = GlobalVariables.ethereum;
 final litecoin = GlobalVariables.litecoin;
 final ripple = GlobalVariables.ripple;
 
-double money = GlobalData.money;
+double money = Balance.balance;
 
 class Finance extends StatefulWidget {
   const Finance({Key? key}) : super(key: key);
@@ -122,7 +123,6 @@ class Navbar extends StatelessWidget {
 
 class BuySellButton extends StatefulWidget {
   final Coin coin;
-
   BuySellButton({required this.coin});
 
   @override
@@ -130,6 +130,7 @@ class BuySellButton extends StatefulWidget {
 }
 
 class _BuySellButtonState extends State<BuySellButton> {
+  Historys historys = Historys();
   TextEditingController btcController = TextEditingController();
   double btcAmount = 0;
 
@@ -142,6 +143,10 @@ class _BuySellButtonState extends State<BuySellButton> {
         money -= cost;
         btcController.clear();
       });
+      Balance.deductMoney(cost);
+      for (int i = 0; i < historys.nama.length; i++) {
+      print("Nama: ${historys.nama[i]}, Money: ${historys.money[i]}, Date: ${historys.date[i]}");
+    }
     } else {
       // Handle insufficient funds.
       showDialog(

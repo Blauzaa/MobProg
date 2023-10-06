@@ -137,6 +137,7 @@ class Isi extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Container(
+              margin: EdgeInsets.only(left: 20),
               width: double.infinity,
               height: 50,
               child: Stack(
@@ -194,8 +195,10 @@ class Isi extends StatelessWidget {
                               child: Text(
                                 historys.money[index],
                                 style: TextStyle(
-                                  color: Color(
-                                      0xFF000000), // Ganti warna sesuai kebutuhan
+                                  color: historys.money[index].startsWith("+")
+                                      ? Colors.green
+                                      : Colors
+                                          .red, // Ganti warna sesuai kebutuhan
                                   fontSize: 11,
                                   fontFamily: 'Lato',
                                   fontWeight: FontWeight.w600,

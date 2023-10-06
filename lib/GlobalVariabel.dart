@@ -1,10 +1,8 @@
 import 'package:flutter/foundation.dart'; 
-class GlobalData {
-  static double money = 1000000.0;
-}
+
 
 class Historys {
-  List<String> nama = ["Kelvyn", "Seven", "Nathaniel"];
+  List<String> nama = ["Kelvyn", "Steven", "Nathaniel"];
   List<String> money = ["+ Rp 69.277", "- Rp 77.989", "+ 46.233"];
   List<String> date = [
     "28 September 2023, 13:32",
@@ -20,16 +18,17 @@ class Historys {
 }
 
 class Balance {
-  int balance = 0;
+  static double balance = 10000000;
 
-  void addMoney(int balance) {
-    this.balance += balance;
+  static void addMoney(double amount) {
+    balance += amount;
   }
 
-  void deductMoney(int balance) {
-    this.balance -= balance;
+  static void deductMoney(double amount) {
+    balance -= amount;
   }
 }
+
 
 
 class Coin {
