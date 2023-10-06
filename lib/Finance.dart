@@ -8,13 +8,10 @@ void main() {
   runApp(const Finance());
 }
 
-class Coin {
-  final ValueNotifier<double> jumlah;
-  final double harga;
-  final String symbol;
-
-  Coin({required this.jumlah, required this.harga, required this.symbol});
-}
+final bitcoin = GlobalVariables.bitcoin;
+final ethereum = GlobalVariables.ethereum;
+final litecoin = GlobalVariables.litecoin;
+final ripple = GlobalVariables.ripple;
 
 double money = GlobalData.money;
 
@@ -26,30 +23,6 @@ class Finance extends StatefulWidget {
 }
 
 class _FinanceState extends State<Finance> {
-  final bitcoin = Coin(
-    symbol: 'BTC',
-    harga: 29850.0,
-    jumlah: ValueNotifier<double>(0),
-  );
-
-  final ethereum = Coin(
-    symbol: 'ETH',
-    harga: 10560.0,
-    jumlah: ValueNotifier<double>(0),
-  );
-
-  final litecoin = Coin(
-    symbol: 'LTC',
-    harga: 3676.0,
-    jumlah: ValueNotifier<double>(0),
-  );
-
-  final ripple = Coin(
-    symbol: 'XRP',
-    harga: 5240.0,
-    jumlah: ValueNotifier<double>(0),
-  );
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(

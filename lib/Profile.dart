@@ -48,9 +48,9 @@ class Profile extends StatelessWidget {
                 Padding(
                   padding: EdgeInsets.only(bottom: 0.1),
                   child: Image.asset(
-                    'assets/profileicon.png',
+                    'assets/Profil.png',
                     width: 100,
-                    height: 50,
+                    height: 100,
                   ),
                 ),
                 SizedBox(height: 0.1),
