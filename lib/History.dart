@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:mobileapps/Finance.dart';
 import 'package:mobileapps/GlobalVariabel.dart';
 import 'package:mobileapps/Profile.dart';
@@ -55,65 +56,48 @@ class Navbar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: 375,
-      height: 100,
-      clipBehavior: Clip.antiAlias,
-      decoration: const BoxDecoration(),
-      child: Stack(
+    return AppBar(
+      title: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Positioned(
-            left: 20,
-            top: 75, // Mengatur top ke 0 agar tetap di atas
-            child: Text(
-              'History',
-              style: TextStyle(
-                color: Color(0xFF118EEA),
-                fontSize: 36,
-                fontFamily: 'Lato',
-                fontWeight: FontWeight.w700,
-                height: 0.03,
-                letterSpacing: 0.38,
-              ),
+          Text(
+            'ECOM',
+            style: TextStyle(
+              color: Color(0xFF118EEA),
+              fontSize: 18,
+              fontWeight: FontWeight.bold,
             ),
           ),
-          Positioned(
-            left: 327,
-            top: 25, // Mengatur top ke 9 agar tetap di atas
-            child: InkWell(
-              onTap: () {
-                // Pindah ke halaman Profile.dart
-                Navigator.of(context)
-                    .push(MaterialPageRoute(builder: (context) => Profile()));
-              },
-              child: Container(
-                width: 28,
-                height: 28,
-                clipBehavior: Clip.antiAlias,
-                decoration: BoxDecoration(
-                  image: DecorationImage(
-                    image: AssetImage('assets/profileicon.png'),
-                  ),
-                ),
-              ),
-            ),
-          ),
-          const Positioned(
-            left: 20,
-            top: 25, // Mengatur top ke 9 agar tetap di atas
-            child: Text(
-              'ECO-M',
-              style: TextStyle(
-                color: Color(0xFF118EEA),
-                fontSize: 18,
-                fontFamily: 'Lato',
-                fontWeight: FontWeight.w700,
-                height: 0,
-              ),
+          Text(
+            'History',
+            style: TextStyle(
+              color: Color(0xFF118EEA),
+              fontSize: 36,
+              fontWeight: FontWeight.bold,
             ),
           ),
         ],
       ),
+      actions: [
+        Container(
+          margin: EdgeInsets.only(right: 17.0),
+          child: InkWell(
+            onTap: () {
+              // Pindah ke halaman profile.dart
+              Navigator.of(context)
+                  .push(MaterialPageRoute(builder: (context) => Profile()));
+            },
+            child: SvgPicture.asset(
+              'assets/icons/profile.svg',
+              width: 24,
+              height: 24,
+            ),
+          ),
+        ),
+      ],
+      backgroundColor: Colors.white,
+      elevation: 0,
+      automaticallyImplyLeading: false, // Untuk menghilangkan tombol "Back"
     );
   }
 }
