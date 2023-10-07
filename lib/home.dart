@@ -151,7 +151,7 @@ class _HomeState extends State<Home> {
                         width: 137,
                         height: 84,
                         decoration: ShapeDecoration(
-                          color: Colors.white,
+                          color: Color(0xFF118EEA),
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(24),
                           ),
@@ -168,8 +168,10 @@ class _HomeState extends State<Home> {
                           child: Text(
                             'Top UP',
                             style: TextStyle(
-                                // Define the text style as needed
-                                ),
+                              color: Color.fromARGB(255, 255, 254, 254),
+                              fontSize: 24,
+                              fontFamily: 'lato',
+                            ),
                           ),
                         ),
                       ),
@@ -187,7 +189,7 @@ class _HomeState extends State<Home> {
                         width: 137,
                         height: 84,
                         decoration: ShapeDecoration(
-                          color: Colors.white,
+                          color: Color(0xFF118EEA),
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(24),
                           ),
@@ -204,8 +206,10 @@ class _HomeState extends State<Home> {
                           child: Text(
                             'My QR',
                             style: TextStyle(
-                                // Define the text style as needed
-                                ),
+                              color: Color.fromARGB(255, 255, 254, 254),
+                              fontSize: 24,
+                              fontFamily: 'lato',
+                            ),
                           ),
                         ),
                       ),
@@ -229,7 +233,7 @@ class _HomeState extends State<Home> {
                         width: 137,
                         height: 84,
                         decoration: ShapeDecoration(
-                          color: Colors.white,
+                          color: Color(0xFF118EEA),
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(24),
                           ),
@@ -246,8 +250,10 @@ class _HomeState extends State<Home> {
                           child: Text(
                             'Transfer',
                             style: TextStyle(
-                                // Define the text style as needed
-                                ),
+                              color: Color.fromARGB(255, 255, 254, 254),
+                              fontSize: 24,
+                              fontFamily: 'lato',
+                            ),
                           ),
                         ),
                       ),
@@ -264,7 +270,7 @@ class _HomeState extends State<Home> {
                         width: 137,
                         height: 84,
                         decoration: ShapeDecoration(
-                          color: Colors.white,
+                          color: Color(0xFF118EEA),
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(24),
                           ),
@@ -281,8 +287,10 @@ class _HomeState extends State<Home> {
                           child: Text(
                             'History',
                             style: TextStyle(
-                                // Define the text style as needed
-                                ),
+                              color: Color.fromARGB(255, 255, 254, 254),
+                              fontSize: 24,
+                              fontFamily: 'lato',
+                            ),
                           ),
                         ),
                       ),
