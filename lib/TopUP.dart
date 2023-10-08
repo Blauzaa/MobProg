@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:mobileapps/home.dart';
+import 'GlobalVariabel.dart';
 
 class TopUP extends StatefulWidget {
   final TopUPpage state;
@@ -9,13 +11,13 @@ class TopUP extends StatefulWidget {
   TopUPpage createState() => state;
 }
 
-
 class TopUPpage extends State<TopUP> {
   String recipientAccountNumber = '';
   int selectedAmount = 0;
   String selectedBank = 'Bank BCA';
   List<int> predefinedAmounts = [25000, 50000, 100000, 250000, 500000];
   TextEditingController amountController = TextEditingController();
+  Historys history = Historys();
 
   List<String> banks = ['Bank BCA', 'Bank BNI', 'Bank BRI', 'Shinhan Bank'];
 
@@ -51,12 +53,6 @@ class TopUPpage extends State<TopUP> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
-              SizedBox(height: 20.0),
-              Image.asset(
-                'assets/Background.png', // Ganti dengan path gambar yang sesuai
-                width: 300.0, // Sesuaikan dengan lebar yang Anda inginkan
-                height: 150.0, // Sesuaikan dengan tinggi yang Anda inginkan
-              ),
               SizedBox(height: 20.0),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -139,8 +135,14 @@ class TopUPpage extends State<TopUP> {
               SizedBox(height: 20.0),
               ElevatedButton(
                 onPressed: () {
-                  // Lakukan logika transfer ke penerima dengan jumlah tertentu di sini
-                  // Anda dapat menggunakan setState untuk memperbarui tampilan setelah transfer berhasil
+                  Balance.addMoney(selectedAmount.toDouble());
+                  history.addHistory("TopUP", "+ " + selectedAmount.toString(),
+                      DateTime.now().toString());
+                  for (var x in history.nama) {
+                    print(x);
+                  }
+                  Navigator.of(context)
+                      .push(MaterialPageRoute(builder: (context) => Home()));
                 },
                 child: Text('Top Up'),
               ),

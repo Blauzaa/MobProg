@@ -1,5 +1,4 @@
-import 'package:flutter/foundation.dart'; 
-
+import 'package:flutter/foundation.dart';
 
 class Historys {
   List<String> nama = ["Kelvyn", "Steven", "Nathaniel"];
@@ -7,13 +6,16 @@ class Historys {
   List<String> date = [
     "28 September 2023, 13:32",
     "29 September 2023, 13:31",
-    "30 September 2023, 11:31"
+    "30 September 2023, 11:31",
   ];
 
   void addHistory(String newNama, String newMoney, String newDate) {
-    nama.add(newNama);
-    money.add(newMoney);
-    date.add(newDate);
+    GlobalVariables.historys.nama = [newNama, ...GlobalVariables.historys.nama];
+    GlobalVariables.historys.money = [
+      newMoney,
+      ...GlobalVariables.historys.money
+    ];
+    GlobalVariables.historys.date = [newDate, ...GlobalVariables.historys.date];
   }
 }
 
@@ -28,8 +30,6 @@ class Balance {
     balance -= amount;
   }
 }
-
-
 
 class Coin {
   final ValueNotifier<double> jumlah;
@@ -63,5 +63,5 @@ class GlobalVariables {
     harga: 5240.0,
     jumlah: ValueNotifier<double>(0),
   );
+  static final Historys historys = Historys();
 }
-

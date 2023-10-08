@@ -20,8 +20,8 @@ class History extends StatefulWidget {
 class _HistoryState extends State<History> {
   @override
   Widget build(BuildContext context) {
-    // Buat objek Historys
-    final historys = Historys();
+    // Tidak perlu lagi membuat objek Historys di sini
+    // final historys = Historys();
 
     return MaterialApp(
       debugShowCheckedModeBanner: false,
@@ -34,10 +34,10 @@ class _HistoryState extends State<History> {
             Navbar(),
             Expanded(
               child: ListView.builder(
-                itemCount: historys.nama.length,
+                itemCount: GlobalVariables.historys.nama.length,
                 itemBuilder: (BuildContext context, int index) {
                   return Isi(
-                    historys: historys,
+                    historys: GlobalVariables.historys,
                     index: index,
                   );
                 },
