@@ -133,8 +133,8 @@ class _BuySellButtonState extends State<BuySellButton> {
       String formattedDate = DateFormat('yyyy-MM-dd HH:mm').format(now);
       historys.addHistory(
         widget.coin.symbol, // newName
-        "- Rp $cost", // newMoney
-        DateTime.now().toString(), // newDate
+        "- Rp. ${NumberFormat('#,###', 'id_ID').format(cost)}", // newMoney
+        formattedDate, // newDate
       );
     } else {
       // Handle insufficient funds.
@@ -174,8 +174,8 @@ class _BuySellButtonState extends State<BuySellButton> {
       String formattedDate = DateFormat('yyyy-MM-dd HH:mm').format(now);
       historys.addHistory(
         widget.coin.symbol, // newName
-        "+ Rp $income", // newMoney
-        DateTime.now().toString(), // newDate
+        "+ Rp. ${NumberFormat('#,###', 'id_ID').format(income)}", // newMoney
+        formattedDate, // newDate
       );
     } else {
       // Handle insufficient coin balance.
