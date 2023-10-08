@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:mobileapps/Changenickname.dart';
 import 'package:mobileapps/home.dart';
+import 'package:mobileapps/Changepin.dart';
 
 void main() {
   debugPaintSizeEnabled = false;
@@ -25,7 +27,7 @@ class Profile extends StatelessWidget {
                     color: Colors.blue,
                   ),
                 ),
-                SizedBox(width: 235), // Jarak antara gambar dan teks
+                SizedBox(width: 235),
                 InkWell(
                   onTap: () {
                     Navigator.push(
@@ -71,13 +73,21 @@ class Profile extends StatelessWidget {
                       ),
                     ),
                     SizedBox(width: 1.0), // Jarak antara elemen di dalam Row
-                    Image.asset(
-                      'assets/setting.png',
-                      width: 40,
-                      height: 40,
-                      colorBlendMode: BlendMode.darken,
-                      filterQuality: FilterQuality.high,
-                    )
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => MyApp()),
+                        );
+                      },
+                      child: Image.asset(
+                        'assets/setting.png',
+                        width: 40,
+                        height: 40,
+                        colorBlendMode: BlendMode.darken,
+                        filterQuality: FilterQuality.high,
+                      ),
+                    ),
                   ],
                 ),
                 Expanded(
@@ -191,17 +201,26 @@ class Profile extends StatelessWidget {
                         thickness: 2,
                       ),
                       ListTile(
-                          leading: Image.asset(
-                            'assets/pin.png',
-                            width: 48,
-                            height: 48,
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => changepin()),
+                          );
+                        },
+                        leading: Image.asset(
+                          'assets/pin.png',
+                          width: 48,
+                          height: 48,
+                        ),
+                        title: Text(
+                          'Ubah Pin',
+                          style: TextStyle(
+                            color: Colors.black,
+                            fontWeight: FontWeight.bold,
                           ),
-                          title: Text(
-                            'Ubah Pin',
-                            style: TextStyle(
-                                color: Colors.black,
-                                fontWeight: FontWeight.bold),
-                          )),
+                        ),
+                      ),
                       Divider(
                         height: 1,
                         color: Colors.blue,
