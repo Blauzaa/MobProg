@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'GlobalVariabel.dart';
 import 'home.dart';
+import 'package:intl/intl.dart';
 
 class Transfer extends StatefulWidget {
   @override
@@ -63,7 +64,10 @@ class _TransferState extends State<Transfer> {
             SizedBox(height: 20.0),
             ElevatedButton(
               onPressed: () {
-                String input = amountController.text; // Get the text from the "Jumlah Transfer" TextField
+                DateTime now = DateTime.now();
+
+                String formattedDate = DateFormat('yyyy-MM-dd HH:mm').format(now);
+                String input = amountController.text; 
                 print(input);
 
                 if (input.isEmpty) {
@@ -83,7 +87,7 @@ class _TransferState extends State<Transfer> {
 
                 Balance.deductMoney(amount);
 
-                history.addHistory("Transfer", "- "+amount.toString(), DateTime.now().toString());
+                history.addHistory("Transfer", "- Rp ${NumberFormat('#,###', 'id_ID').format(amount).toString()}", formattedDate);
                 Navigator.of(context).push(MaterialPageRoute(builder: (context) => Home()));
               },
               child: Text('Proses Transfer'),

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mobileapps/home.dart';
 import 'GlobalVariabel.dart';
+import 'package:intl/intl.dart';
 
 class TopUP extends StatefulWidget {
   final TopUPpage state;
@@ -12,6 +13,7 @@ class TopUP extends StatefulWidget {
 }
 
 class TopUPpage extends State<TopUP> {
+  Historys myHistory = Historys();
   String recipientAccountNumber = '';
   int selectedAmount = 0;
   String selectedBank = 'Bank BCA';
@@ -135,12 +137,13 @@ class TopUPpage extends State<TopUP> {
               SizedBox(height: 20.0),
               ElevatedButton(
                 onPressed: () {
+                  DateTime now = DateTime.now();
+
+                  String formattedDate = DateFormat('yyyy-MM-dd HH:mm').format(now);
                   Balance.addMoney(selectedAmount.toDouble());
-                  history.addHistory("TopUP", "+ " + selectedAmount.toString(),
-                      DateTime.now().toString());
-                  for (var x in history.nama) {
-                    print(x);
-                  }
+                  history.addHistory("TopUP","+ Rp ${NumberFormat('#,###', 'id_ID').format(selectedAmount).toString()}",
+                      formattedDate);
+                  print(myHistory.nama[0]);
                   Navigator.of(context)
                       .push(MaterialPageRoute(builder: (context) => Home()));
                 },
