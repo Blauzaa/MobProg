@@ -5,6 +5,7 @@ import 'package:mobileapps/GlobalVariabel.dart';
 import 'package:mobileapps/Profile.dart';
 import 'package:mobileapps/Qris.dart';
 import 'package:mobileapps/main.dart';
+import 'home.dart';
 
 void main() {
   runApp(const History());
@@ -20,9 +21,6 @@ class History extends StatefulWidget {
 class _HistoryState extends State<History> {
   @override
   Widget build(BuildContext context) {
-    // Tidak perlu lagi membuat objek Historys di sini
-    // final historys = Historys();
-
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData.dark().copyWith(
@@ -60,20 +58,17 @@ class Navbar extends StatelessWidget {
       title: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
-            'ECOM',
-            style: TextStyle(
-              color: Color(0xFF118EEA),
-              fontSize: 18,
-              fontWeight: FontWeight.bold,
-            ),
-          ),
-          Text(
-            'History',
-            style: TextStyle(
-              color: Color(0xFF118EEA),
-              fontSize: 36,
-              fontWeight: FontWeight.bold,
+          InkWell(
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => Home()),
+              );
+            },
+            child: Image.asset(
+              'assets/left-arrow.png',
+              width: 48,
+              height: 48,
             ),
           ),
         ],

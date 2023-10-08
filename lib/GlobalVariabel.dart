@@ -1,12 +1,12 @@
 import 'package:flutter/foundation.dart';
 
 class Historys {
-  List<String> nama = ["Kelvyn", "Steven", "Nathaniel"];
-  List<String> money = ["+ Rp 69.277", "- Rp 77.989", "+ 46.233"];
+  List<String> nama = ["TopUP", "Transfer", "TopUP"];
+  List<String> money = ["+ Rp 69.277", "- Rp 77.989", "+ Rp 46.233"];
   List<String> date = [
-    "28 September 2023, 13:32",
-    "29 September 2023, 13:31",
-    "30 September 2023, 11:31",
+    "2023-09-28, 13:32",
+    "2023-09-29 13:31",
+    "2023-09-30 11:31",
   ];
 
   void addHistory(String newNama, String newMoney, String newDate) {
@@ -16,6 +16,10 @@ class Historys {
       ...GlobalVariables.historys.money
     ];
     GlobalVariables.historys.date = [newDate, ...GlobalVariables.historys.date];
+
+    for (var element in GlobalVariables.historys.nama) {
+      print(element);
+    }
   }
 }
 
